@@ -1,0 +1,12 @@
+<?php $this->extend('block_unsearchable'); ?>
+<?php $this->block('content'); ?>
+<div class="event-table-head">
+  <span class="first-column">&nbsp;&nbsp;Stelle</span><span class="second-column">&nbsp;&nbsp;&nbsp;Eintrittsdatum</span><span class="third-column">&nbsp;&nbsp;&nbsp;Ort</span><span class="fourth-column">Details</span>
+</div>
+  <?= $this->events ?>
+
+  {{file::api-events.php}}
+
+<?= $this->pagination ?>
+
+<?php $this->endblock(); ?>

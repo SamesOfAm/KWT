@@ -1,0 +1,31 @@
+@import 'variables';
+
+#main .inside #search-results > div:not(.mod_search) {
+  margin: 20px auto;
+  padding: 35px;
+  box-shadow: 0 0 10px $gray;
+  border-radius: 10px;
+  transition: all 250ms;
+  -webkit-transition: all 250ms;
+  -moz-transition: all 250ms;
+  -o-transition: all 250ms;
+
+  h3 {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    text-align: left;
+    font-weight: bold;
+    transition: all 250ms;
+    -webkit-transition: all 250ms;
+    -moz-transition: all 250ms;
+    -o-transition: all 250ms;
+  }
+
+  &:hover {
+    box-shadow: 0 0 25px $gray;
+    h3 {
+      color: $font-color-light;
+    }
+  }
+}

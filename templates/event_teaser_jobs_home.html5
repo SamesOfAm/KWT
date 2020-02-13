@@ -1,0 +1,24 @@
+<?php
+  $datePieces = explode("-", $this->date);
+?>
+<div class="event job-home layout_teaser<?= $this->classList ?>" itemscope itemtype="http://schema.org/Event">
+
+  <p class="time"><time datetime="<?= $this->datetime ?>" itemprop="startDate"><?= $datePieces[2]; ?>.<?= $datePieces[1]; ?>.<?= $datePieces[0]; ?></time></p>
+    <h3 itemprop="name"><a href="<?= $this->href ?>" title="<?= $this->title ?> (<?php if ($this->day) echo $this->day . ', '; ?><?= $this->date ?><?php if ($this->time) echo ', ' . $this->time; ?>)"<?= $this->target ?> itemprop="url"><?= $this->link ?></a></h3>
+
+
+
+  <div class="ce_text block" itemprop="description">
+    <?php if (!$this->addBefore): ?>
+      <?= $this->teaser ?>
+    <?php endif; ?>
+    <p class="more"><a href="<?= $this->href ?>" title="<?= $this->readMore ?>"<?= $this->target ?> itemprop="url">... <?= $this->more ?><span class="invisible"> <?= $this->link ?></span></a></p>
+
+    <?php if ($this->addBefore): ?>
+      <?= $this->teaser ?>
+    <?php endif; ?>
+  </div>
+
+
+
+</div>

@@ -1,0 +1,72 @@
+<?php
+  $datePieces = explode("-", $this->date);
+?>
+<div class="event layout_full block<?= $this->class ?>" itemscope itemtype="http://schema.org/Event">
+  <div class="event-detail-table-head">
+    <span class="first-column">
+      <?php if($this->class === ' termin'):  ?>Termin<?php endif; ?>
+      <?php if($this->class === ' seminar'):  ?>Seminarprogramm<?php endif; ?>
+      <?php if($this->class === ' mentoring'):  ?>Mentoring<?php endif; ?>
+      <?php if($this->class === ' trainer'):  ?>Train the Trainer<?php endif; ?>
+      <?php if($this->class === ' einzelpraxis'):  ?>Einzelpraxis<?php endif; ?>
+      <?php if($this->class === ' gemeinschaftspraxis'):  ?>Gemeinschaftspraxis<?php endif; ?>
+      <?php if($this->class === ' praxisgemeinschaft'):  ?>Praxisgemeinschaft<?php endif; ?>
+      <?php if($this->class === ' mvz'):  ?>MVZ<?php endif; ?>
+      <?php if($this->class === ' krankenhaus'):  ?>Krankenhaus<?php endif; ?>
+    </span>
+    <span class="second-column"><?= $datePieces[2]; ?>.<?= $datePieces[1]; ?>.<?= $datePieces[0]; ?></span>
+    <span class="third-column"><?= $this->location ?></span>
+  </div>
+  <div class="event-detail-body">
+    <div class="column first-column">
+      <h1 itemprop="name"><?= $this->title ?></h1>
+    </div>
+    <div class="column second-column">
+      <span class="detail-body-head">Zeitraum</span>
+      <p class="info"><time datetime="<?= $this->datetime ?>" itemprop="startDate"><?php echo $this->parseDate("j.", $this->startDate); ?> <?php echo $this->parseDate("M", $this->startDate); ?> <?php echo $this->parseDate("Y", $this->startDate); ?><?php if ($this->endDate): ?></time> bis <time datetime="<?= $this->datetime ?>" itemprop="endDate"><?php echo $this->parseDate("j.", $this->endDate); ?> <?php echo $this->parseDate("M", $this->endDate); ?> <?php echo $this->parseDate("Y", $this->endDate); ?><?php endif;?><?php if ($this->time): ?>, <?= $this->time ?><?php endif; ?></time></p>
+    </div>
+    <div class="column third-column">
+      <?php if ($this->location): ?>
+      <span class="detail-body-head">Veranstaltungsort</span>
+      <p class="location"><?= $this->location ?></p>
+      <?php endif; ?>
+    </div>
+    <?php if ($this->recurring): ?>
+      <p class="recurring"><?= $this->recurring ?><?php if ($this->until) echo ' ' . $this->until; ?>.</p>
+    <?php endif; ?>
+
+    <?php if ($this->hasDetails): ?>
+      <?= $this->details ?>
+    <?php else: ?>
+      <div class="ce_text block" style="margin-bottom: 25px;">
+        <?php if (!$this->addBefore): ?>
+          <?= $this->teaser ?>
+        <?php endif; ?>
+
+        <?php if ($this->addImage): ?>
+          <?php $this->insert('image', $this->arrData); ?>
+        <?php endif; ?>
+
+        <?php if ($this->addBefore): ?>
+          <?= $this->teaser ?>
+        <?php endif; ?>
+      </div>
+    <?php endif; ?>
+    
+  <?php if($this->class === ' seminar' || $this->class === ' mentoring'): ?>
+	<a class="orange-button" href="{{link_url::39}}">Anmeldung zum Seminar- und Mentoringprogramm</a>
+  <?php endif; ?>
+
+
+
+    <?php if ($this->enclosure): ?>
+      <ul class="enclosure">
+        <?php foreach ($this->enclosure as $enclosure): ?>
+          <li class="download-element ext-<?= $enclosure['extension'] ?>">
+             <a href="<?= $enclosure['href'] ?>" title="<?= $enclosure['title'] ?>"><?= $enclosure['link'] ?> <span class="size">(<?= $enclosure['filesize'] ?>)</span></a>
+          </li>
+        <?php endforeach; ?>
+      </ul>
+    <?php endif; ?>
+  </div>
+</div>

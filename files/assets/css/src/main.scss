@@ -1,0 +1,295 @@
+@import 'variables';
+
+#main .inside > div > div,
+#main .inside > div > p,
+#main .inside > div > .ce_accordion {
+  width: $content-width;
+  max-width: $max-width;
+  margin: 0 auto;
+}
+
+#main .inside .mod_article.last {
+  margin-bottom: 80px;
+}
+
+#container {
+  margin-top: 70px;
+}
+
+h1, h2, h3, h4 {
+  width: $content-width;
+  margin: 0 auto;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: normal;
+  color: $font-color;
+}
+
+h1{
+  margin-bottom: 50px;
+}
+
+h1,h2 {
+  max-width: 525px;
+}
+
+h2 {
+  margin: 15px auto;
+  font-size: 19px;
+  font-weight: bold;
+}
+
+h3,h4 {
+  max-width: 350px;
+  margin-top: 12px;
+}
+
+h4 {
+  margin-bottom: 35px;
+}
+
+h4.long {
+  max-width: $content-width;
+}
+
+#main .inside > div > .h3-icon {
+  margin-bottom: 12px;
+  &:not(:first-child) {
+    margin-top: 50px;
+  }
+  figure {
+    width: 40px;
+    margin: 0 auto;
+    img {
+      width: 100%;
+    }
+  }
+}
+
+.ce_text:not(.coop-text) ul {
+  padding-left: 20px;
+  list-style: square;
+}
+
+.green {
+  color: $green;
+}
+
+.job-slider {
+  margin-bottom: 50px !important;
+  overflow: visible;
+  background: rgba(46,91,153,1);
+  background: -moz-linear-gradient(left, rgba(46,91,153,1) 0%, rgba(105,190,88,1) 100%);
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%, rgba(46,91,153,1)), color-stop(100%, rgba(105,190,88,1)));
+  background: -webkit-linear-gradient(left, rgba(46,91,153,1) 0%, rgba(105,190,88,1) 100%);
+  background: -o-linear-gradient(left, rgba(46,91,153,1) 0%, rgba(105,190,88,1) 100%);
+  background: -ms-linear-gradient(left, rgba(46,91,153,1) 0%, rgba(105,190,88,1) 100%);
+  background: linear-gradient(to right, rgba(46,91,153,1) 0%, rgba(105,190,88,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2e5b99', endColorstr='#69be58', GradientType=1 );
+  border-radius: 40px;
+  color: white;
+}
+
+.job-home .time {
+  margin-bottom: 0;
+}
+
+.job-home h3 {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 0 20px;
+  text-align: left;
+  font-weight: bold;
+  text-transform: none;
+  a {
+    color: white;
+  }
+}
+
+.job-home .ce_text p {
+  margin-top: 0;
+  &:nth-last-child(2) {
+    display: inline;
+  }
+}
+
+.job-home .more {
+  display: inline;
+  a {
+    color: white;
+    font-style: italic;
+    text-transform: lowercase;
+  }
+}
+
+.content-slider {
+  width: 80%;
+  margin: 0 auto;
+  padding-top: 20px;
+}
+
+.slider-control {
+  display: none;
+}
+
+.slider-control > a {
+  display: none;
+}
+
+#main .slider-menu {
+  width: 80px;
+  margin: 30px auto 0;
+  transform: translateX(-50%);
+  font-size: 20px;
+  span {
+    display: block;
+    float: left;
+    margin: 4px;
+    color: $green;
+    cursor: pointer;
+    &.active {
+      margin-top: 2px;
+      color: $darkgreen;
+      font-size: 25px;
+    }
+    &:not(.active) {
+      line-height: 1.5em;
+    }
+  }
+}
+
+.to-top-button {
+  position: fixed;
+  bottom: 300px;
+  right: 100px;
+  z-index: 1;
+}
+
+#main .inside > div > .ce_accordion {
+  .toggler {
+    position: relative;
+    padding: 15px;
+    transition: background-color 250ms, color 250ms;
+    -webkit-transition: background-color 250ms, color 250ms;
+    -moz-transition: background-color 250ms, color 250ms;
+    -o-transition: background-color 250ms, color 250ms;
+    cursor: pointer;
+    border-left-color: $bluegreen;
+    &:hover {
+      background-color: $light-bluegreen;
+    }
+    &.active {
+      background-color: $bluegreen;
+      color: white;
+    }
+    &:after {
+      content: '';
+      position: absolute;
+      right: 25px;
+      width: 35px;
+      height: 23px;
+      background: url("../layout/arrow-down-accordion.svg") no-repeat 0 0/contain;
+    }
+    &.active:after {
+      background-image: url("../layout/arrow-up-accordion.svg");
+    }
+  }
+  .accordion {
+    padding: 15px;
+    background-color: $light-bluegreen;
+  }
+  &:not(:last-child) {
+    border-bottom: 1px solid;
+  }
+}
+
+.two-tables {
+  float: left;
+  width: 50%;
+  margin-top: 25px;
+  margin-bottom: 50px;
+  text-align: center;
+  p {
+    margin: 5px 0;
+  }
+}
+
+.download-button {
+  display: inline-block;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: #fbad18;
+  cursor: pointer;
+  color: white;
+  clear: both;
+  float: left;
+  transition: all 250ms;
+  -webkit-transition: all 250ms;
+  -moz-transition: all 250ms;
+  -o-transition: all 250ms;
+  &:hover {
+    background-color: $orange-hover;
+  }
+}
+
+.ce_download a,.orange-button {
+  background-color: $orange;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  transition: all 250ms;
+  font-size: 16px;
+  &:hover {
+    background-color: $orange-hover;
+  }
+}
+
+@media screen and (max-width: $tablet) {
+  #container {
+    margin-top: 0;
+  }
+
+  .to-top-button {
+    opacity: 0;
+    z-index: -1;
+  }
+
+  .ce_download a,.orange-button {
+    display: inline-block;
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: $smartphone) {
+  #main .inside > div > .ce_text,
+  #main .inside > div > .ce_image,
+  #main .inside > div > .ce_sliderStart {
+    width: $content-width-smartphone;
+  }
+
+  #mbCenter {
+    width: 100%;
+  }
+
+  #mbMedia {
+    width: 100%;
+    iframe {
+      display: block;
+      width: 300px;
+      margin: 0 auto;
+    }
+  }
+
+  #mbBottom {
+    width: 90%;
+  }
+
+  #main .inside > div > .ce_accordion .toggler:after {
+    position: relative;
+    display: block;
+    margin-top: 7px;
+    margin-left: 50%;
+  }
+}

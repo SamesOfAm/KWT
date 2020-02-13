@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="44b3bf19-fad0-442e-996f-0390723ada7c" name="ftp.digital-concept.eu" url="http://ftp.digital-concept.eu">
+        <fileTransfer host="ftp.digital-concept.eu" port="21" rootFolder="/contao4">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+          <option name="port" value="21" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

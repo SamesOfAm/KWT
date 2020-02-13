@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" autoUpload="Always" serverName="ftp.digital-concept.eu" exclude="Gruntfile.js;*scss;*.map;package.json;.sass-cache;package-lock.json;workspace.xml;deployment.xml" autoUploadExternalChanges="true">
+    <serverData>
+      <paths name="ftp.digital-concept.eu">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/" local="$PROJECT_DIR$" web="/" />
+          </mappings>
+          <excludedPaths>
+            <excludedPath local="true" path="$PROJECT_DIR$/files/assets/css/src" />
+          </excludedPaths>
+        </serverdata>
+      </paths>
+    </serverData>
+    <option name="myAutoUpload" value="ALWAYS" />
+  </component>
+</project>

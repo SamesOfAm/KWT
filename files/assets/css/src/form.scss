@@ -1,0 +1,82 @@
+@import 'variables';
+
+.job-posting-form {
+  padding: 10px;
+  background-color: $light-bluegreen;
+  border-radius: 5px;
+  select,input,textarea,fieldset {
+    border-radius: 5px;
+    border: 1px solid $gray-light;
+    cursor: pointer;
+    transition: border-color 250ms;
+    -webkit-transition: border-color 250ms;
+    -moz-transition: border-color 250ms;
+    -o-transition: border-color 250ms;
+    &:hover {
+      border-color: $gray;
+    }
+  }
+  label {
+    display: inline-block;
+    width: 245px;
+  }
+  .radio_container label, .checkbox_container label {
+    width: initial;
+  }
+  .widget {
+    margin: 15px;
+  }
+  input {
+    padding: 8px;
+  }
+  select {
+    position: relative;
+    width: 185px;
+    padding: 8px;
+    &:after {
+      position: absolute;
+      content: "\f107";
+      top: 15px;
+      right: 15px;
+    }
+  }
+  .widget-textarea label {
+    vertical-align: top;
+    margin-top: 35px;
+  }
+  .widget-submit button {
+    background-color: $orange;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    transition: all 250ms;
+    font-size: 16px;
+    &:hover {
+      background-color: $orange-hover;
+    }
+  }
+}
+
+#mbCenter {
+  background-color: white;
+  padding: 50px;
+  .back a {
+    background-color: $orange;
+    padding: 8px;
+    color: white;
+    &:hover {
+      background-color: $orange-hover;
+    }
+  }
+}
+
+@media screen and (max-width: $smartphone) {
+  .job-posting-form fieldset span:not(.mandatory) {
+    display: block;
+  }
+  .job-posting-form textarea {
+    width: 190px;
+  }
+}

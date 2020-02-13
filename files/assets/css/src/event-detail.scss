@@ -1,0 +1,92 @@
+@import 'variables';
+
+.event-detail .event {
+  position: relative;
+  &.termin .event-detail-table-head, &.einzelpraxis .event-detail-table-head {
+    background-color: $font-color;
+  }
+  &.termin .event-detail-body, &.einzelpraxis .event-detail-body {
+    background-color: $font-color-light;
+  }
+  &.seminar .event-detail-table-head, &.gemeinschaftspraxis .event-detail-table-head {
+    background-color: $bluegreen;
+  }
+  &.seminar .event-detail-body, &.gemeinschaftspraxis .event-detail-body {
+    background-color: $light-bluegreen;
+  }
+  &.mentoring .event-detail-table-head, &.praxisgemeinschaft .event-detail-table-head {
+    background-color: $darkgreen;
+  }
+  &.mentoring .event-detail-body, &.praxisgemeinschaft .event-detail-body {
+    background-color: $darkgreen-light;
+  }
+  &.trainer .event-detail-table-head, &.mvz .event-detail-table-head {
+    background-color: $green;
+  }
+  &.trainer .event-detail-body, &.mvz .event-detail-body {
+    background-color: $green-light;
+  }
+  &.krankenhaus .event-detail-table-head {
+    background-color: $gray;
+  }
+  &.krankenhaus .event-detail-body {
+    background-color: $gray-light;
+  }
+}
+
+.event-detail-table-head {
+  padding: 18px;
+  color: white;
+  span {
+    display: inline-block;
+  }
+}
+
+.event-detail-body {
+  margin-top: 2px;
+  padding: 30px;
+  h1 {
+    text-transform: none;
+    text-align: left;
+    font-size: 20px;
+    font-weight: bold;
+    color: $font-color;
+    margin-left: 0;
+  }
+  .column {
+    float: left;
+  }
+  .info {
+    margin-top: 0;
+  }
+  .location {
+    margin-top: 0;
+  }
+  .ce_text {
+    clear: both;
+    &:nth-last-child(2) {
+      margin-bottom: 25px;
+    }
+  }
+}
+
+.detail-body-head {
+  color: $font-color;
+}
+
+.back a {
+  display: inline-block;
+  width: 150px;
+  padding: 13px;
+  background-color: $orange;
+  border-radius: 5px;
+  text-align: center;
+  color: white;
+  transition: all 250ms;
+  -webkit-transition: all 250ms;
+  -moz-transition: all 250ms;
+  -o-transition: all 250ms;
+  &:hover {
+    background-color: $orange-hover;
+  }
+}

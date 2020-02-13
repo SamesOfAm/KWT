@@ -1,0 +1,41 @@
+<?php
+  $datePieces = explode("-", $this->date);
+?>
+
+<div class="event layout_teaser<?= $this->classList ?>" itemscope itemtype="http://schema.org/Event">
+  <div class="shadow-circle-wrap">
+    <div class="shadow-circle"></div>
+  </div>
+  <div class="type-circle">
+    <span class="type-circle-text"></span>
+  </div>
+  <p class="time"><time datetime="<?= $this->datetime ?>" itemprop="startDate"><?= $datePieces[2]; ?>. <?= $datePieces[1]; ?>. <?= $datePieces[0]; ?><?php if ($this->time): ?>, <?= $this->time ?><?php endif; ?></time></p>
+
+  <?php if ($this->hasDetails): ?>
+    <h5 itemprop="name"><a href="<?= $this->href ?>" title="<?= $this->title ?> (<?php if ($this->day) echo $this->day . ', '; ?><?= $this->date ?><?php if ($this->time) echo ', ' . $this->time; ?>)"<?= $this->target ?> itemprop="url"><?= $this->link ?></a></h5>
+  <?php else: ?>
+    <h2 itemprop="name"><?= $this->title ?></h2>
+  <?php endif; ?>
+
+
+
+  <div class="ce_text block" itemprop="description">
+    <?php if (!$this->addBefore): ?>
+      <?= $this->teaser ?>
+    <?php endif; ?>
+
+    <?php if ($this->addImage): ?>
+      <?php $this->insert('image', $this->arrData); ?>
+    <?php endif; ?>
+
+    <?php if ($this->addBefore): ?>
+      <?= $this->teaser ?>
+    <?php endif; ?>
+    <?php if ($this->hasDetails): ?>
+    <span class="more-home"><a href="<?= $this->href ?>" title="<?= $this->readMore ?>"<?= $this->target ?> itemprop="url"><?= $this->more ?><span class="invisible"> <?= $this->link ?></span></a></span>
+    <?php endif; ?>
+  </div>
+
+
+
+</div>

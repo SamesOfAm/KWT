@@ -1,0 +1,224 @@
+@import 'variables';
+
+#footer {
+  height: 660px;
+  background: url("../layout/footer-background.png") no-repeat center bottom/contain;
+  font-size: 15px;
+  .inside {
+    position: relative;
+    height: 100%;
+    .ce_text a {
+      color: white;
+    }
+  }
+}
+
+.footer-logo {
+  position: absolute;
+  left: 16vw;
+  bottom: 16vw;
+  width: 25vw;
+  height: 25vw;
+  max-width: 330px;
+  max-height: 330px;
+  border-radius: 100%;
+  background-color: white;
+  figure {
+    text-align: center;
+    img {
+      width: 80%;
+      margin-top: 50%;
+      transform: translateY(-50%);
+      -webkit-transform: translateY(-50%);
+      -moz-transform: translateY(-50%);
+      -o-transform: translateY(-50%);
+    }
+  }
+}
+
+#footer .mod_customnav {
+  position: absolute;
+  bottom: 200px;
+  ul {
+    width: 13vw;
+    max-width: 237px;
+    margin: 0;
+    li {
+      padding-top: 7px;
+      padding-bottom: 7px;
+      text-transform: uppercase;
+      &:not(:last-child) {
+        border-bottom: 1px solid;
+      }
+      a {
+        display: inline-block;
+        transition: all 250ms;
+        &:hover {
+          padding-left: 15px;
+        }
+      }
+    }
+  }
+}
+
+.footer-navigation-left {
+  left: 46vw;
+  color: white;
+  ul li a {
+    color: white;
+  }
+}
+
+.footer-navigation-right {
+  left: 60vw;
+  color: $font-color;
+  ul li a {
+    color: $font-color;
+  }
+}
+
+.coop-logos {
+  position: absolute;
+  bottom: 50px;
+  left: 46vw;
+  h5 {
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    color: white;
+    font-weight: normal;
+  }
+  figure {
+    position: relative;
+    width: 53vw;
+    height: 92px;
+    background-color: white;
+    border-radius: 20px;
+  }
+  img {
+    width: 830px;
+    margin-top: 3px;
+    margin-left: 10px;
+  }
+}
+
+.logo-links {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 90px;
+  padding-left: 30px;
+  a {
+    display: inline-block;
+    height: 90px;
+  }
+}
+
+.logo-link-laek {
+  width: 15%;
+  max-width: 120px;
+}
+
+.logo-link-uni-jena {
+  width: 17%;
+  max-width: 140px;
+}
+
+.logo-link-lkhg {
+  width: 24%;
+  max-width: 190px;
+}
+
+.logo-link-allgemein {
+  width: 12%;
+  max-width: 165px;
+}
+
+.logo-link-kvt {
+  width: 21%;
+  max-width: 210px;
+}
+
+.coop-text {
+  display: none;
+}
+
+.seperator {
+  position: absolute;
+  top: -160px;
+  left: 50%;
+  width: 90%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+}
+
+@media screen and (max-width: 1300px) {
+  #footer .mod_customnav {
+    font-size: 13px;
+    bottom: 135px;
+  }
+
+  .coop-logos {
+    bottom: 0.5vw;
+  }
+}
+
+@media screen and (max-width: 1050px) {
+  #footer {
+    background-size: cover;
+    margin-top: 100px;
+  }
+
+  .footer-logo {
+    left: 25px;
+    top: -127px;
+    width: 250px;
+    height: 250px;
+  }
+
+  #footer .mod_customnav {
+    position: initial;
+    margin: 0 auto;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    ul {
+      width: 100%;
+      max-width: initial;
+    }
+  }
+
+  .footer-navigation-right {
+    padding-top: 130px;
+    margin-bottom: 25px;
+  }
+
+  .coop-logos {
+    display: none;
+  }
+
+  .coop-text {
+    display: block;
+    width: 90%;
+    max-width: 400px;
+    margin: 0 auto;
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
+    h5 {
+      margin-bottom: 5px;
+    }
+    ul {
+      margin-top: 0;
+      li {
+        font-size: 12px;
+        padding: 5px;
+        &:not(:last-child) {
+          border-bottom: 1px solid;
+        }
+      }
+    }
+  }
+}

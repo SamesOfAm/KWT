@@ -1,0 +1,576 @@
+@import 'variables';
+
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  background-color: white;
+  z-index: 0;
+  transition: all 400ms;
+}
+
+#main .inside > div .events-listpage {
+  width: $content-width;
+  max-width: $max-width;
+  margin: 50px auto;
+
+  .toggler {
+    border-bottom: 1px solid black;
+    border-left: 8px solid;
+    cursor: pointer;
+    outline: none;
+    &.active {
+      color: white;
+      border-bottom-color: white;
+      .arrow-down {
+        background-image: url("../layout/arrow-up-accordion.svg");
+      }
+    }
+    span {
+      display: inline-block;
+    }
+  }
+  .ce_accordion {
+    width: 100%;
+    .toggler,.accordion {
+      padding: 15px;
+      transition: background-color 250ms;
+      -webkit-transition: background-color 250ms;
+      -moz-transition: background-color 250ms;
+      -o-transition: background-color 250ms;
+    }
+    &.seminar, &.gemeinschaftspraxis {
+      display: block;
+      .toggler {
+        border-left-color: $bluegreen;
+        &:hover {
+          background-color: $light-bluegreen;
+        }
+        &.active {
+          background-color: $bluegreen;
+        }
+      }
+      .accordion {
+        background-color: $light-bluegreen;
+      }
+    }
+    &.termin, &.einzelpraxis {
+      display: block;
+      .toggler {
+        border-left-color: $font-color;
+        &:hover {
+          background-color: $font-color-light;
+        }
+        &.active {
+          background-color: $font-color;
+        }
+      }
+      .accordion {
+        background-color: $font-color-light;
+      }
+    }
+    &.mentoring, &.praxisgemeinschaft {
+      display: block;
+      .toggler {
+        border-left-color: $darkgreen;
+        &:hover {
+          background-color: $darkgreen-light;
+        }
+        &.active {
+          background-color: $darkgreen;
+        }
+      }
+      .accordion {
+        background-color: $darkgreen-light;
+      }
+    }
+    &.trainer, &.mvz {
+      display: block;
+      .toggler {
+        border-left-color: $green;
+        &:hover {
+          background-color: $green-light;
+        }
+        &.active {
+          background-color: $green;
+        }
+      }
+      .accordion {
+        background-color: $green-light;
+      }
+    }
+    &.krankenhaus {
+      display: block;
+      .toggler {
+        border-left-color: $gray;
+        &:hover {
+          background-color: $gray-light;
+        }
+        &.active {
+          background-color: $gray;
+        }
+      }
+      .accordion {
+        background-color: $gray-light;
+      }
+    }
+  }
+}
+
+.filter-radio {
+  float: left;
+}
+
+.event-filter {
+  margin:  50px 0;
+}
+
+.filter-headline {
+  border-bottom: 1px solid $bluegreen;
+  font-size: 18px;
+  padding-bottom: 4px;
+}
+
+#event-radio-form {
+  margin-top: 15px;
+}
+
+.radio-option {
+  width: 190px;
+  padding: 8px 0;
+  &:not(:last-child) {
+    border-bottom: 1px solid $bluegreen;
+  }
+  &:hover label span {
+    opacity: 0.5;
+  }
+  input {
+    display: none;
+  }
+  label {
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -ms-user-select: none;
+    span {
+      vertical-align: bottom;
+      cursor: pointer;
+      display: inline-block;
+      border: 11px solid;
+      border-radius: 100%;
+      transition: opacity 250ms;
+      -webkit-transition: opacity 250ms;
+      -moz-transition: opacity 250ms;
+      -o-transition: opacity 250ms;
+    }
+    &[for=termine] span {
+      border-color: $font-color;
+    }
+    &[for=seminar] span {
+      border-color: $bluegreen;
+    }
+    &[for=mentoring] span {
+      border-color: $darkgreen;
+    }
+    &[for=trainer] span {
+      border-color: $green;
+    }
+    &[for=select-all] span {
+      border-color: rgba(0,0,0,0.7);
+    }
+    &[for=single] span {
+      border-color: $font-color;
+    }
+    &[for=group] span {
+      border-color: $bluegreen;
+    }
+    &[for=multiple] span {
+      border-color: $darkgreen;
+    }
+    &[for=mvz] span {
+      border-color: $green;
+    }
+    &[for=hospital] span {
+      border-color: rgba(100,100,100,0.7);
+    }
+  }
+  input:checked + span {
+    width: 10px;
+    height: 10px;
+    border-width: 6px;
+  }
+}
+
+.filter-buttons {
+  display: flex;
+  justify-content: space-between;
+  float: right;
+  width: 63%;
+  margin-top: 15px;
+  margin-left: 27px;
+  > div {
+    float: left;
+    width: 24.6%;
+    background-color: $bluegreen;
+    padding: 15px;
+    text-align: center;
+    cursor: pointer;
+    color: white;
+    transition: all 250ms;
+    -webkit-transition: all 250ms;
+    -moz-transition: all 250ms;
+    -o-transition: all 250ms;
+    &:hover {
+      background-color: $light-bluegreen;
+    }
+    > span:first-child {
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      vertical-align: middle;
+    }
+    &:not(.search-filter){
+      margin-right: 5px;
+    }
+  }
+}
+
+.date-icon {
+  background: url('../layout/calendar.svg');
+}
+
+.location-icon {
+  background: url("../layout/location.svg");
+}
+
+.search-icon {
+  background: url('../layout/form-search.svg');
+}
+
+#place-picker,#date-picker,#event-search-form {
+  opacity: 0;
+  z-index: -1;
+  position: fixed;
+  left: 50%;
+  top: 45%;
+  width: 400px;
+  height: 200px;
+  padding: 20px;
+  color: white;
+  background-color: rgba(0,0,0,0.5);
+  transform: translateX(-50%) translateY(-50%);
+  transition: all 400ms;
+}
+
+#date-picker {
+  text-align: center;
+}
+
+#date-input {
+  width: 270px;
+  padding: 8px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+.calendar-icon {
+  width: 25px;
+  height: auto;
+  margin-left: -35px;
+  vertical-align: sub;
+  cursor: pointer;
+}
+
+.location-option {
+  margin: 5px;
+  padding: 8px;
+  cursor: pointer;
+  &:not(:last-child) {
+    border-bottom: 1px solid white;
+  }
+  &:hover input:checked + span {
+    background-color: #7ae665;
+  }
+  label {
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -ms-user-select: none;
+    input {
+      display: none;
+    }
+    span {
+      vertical-align: bottom;
+      cursor: pointer;
+      display: inline-block;
+      border: 11px solid white;
+      border-radius: 100%;
+      transition: background-color 250ms;
+      -webkit-transition: background-color 250ms;
+      -moz-transition: background-color 250ms;
+      -o-transition: background-color 250ms;
+    }
+  }
+  input:checked + span {
+    width: 10px;
+    height: 10px;
+    border-width: 6px;
+    background-color: $green;
+  }
+}
+
+.location-filter-headline {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 23px;
+  color: white;
+}
+
+#close-place-picker,#close-date-picker,#event-search-form .widget-submit button {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  background-color: rgb(251,173,24);
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  color: white;
+  cursor: pointer;
+  outline: none;
+  transition: all 250ms;
+  -webkit-transition: all 250ms;
+  -moz-transition: all 250ms;
+  -o-transition: all 250ms;
+  &:hover {
+    background-color: $orange-hover;
+  }
+}
+
+#reset-date-input {
+  width: 100px;
+  margin: 15px auto;
+  cursor: pointer;
+  &:hover {
+    color: $orange;
+  }
+}
+
+#close-search-form {
+  font-size: 28px;
+  position: absolute;
+  top: 5px;
+  right: 15px;
+  color: white;
+}
+
+#event-search-form .widget-text input {
+  padding: 8px;
+  width: 215px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.mod_eventlist .event.layout_teaser {
+  padding: 15px;
+}
+
+.event-accordion-detail > div {
+  display: inline-block;
+}
+
+.column-head {
+  color: $font-color;
+}
+
+.event-table-head {
+  padding: 18px;
+  color: white;
+  background-color: $lightgreen;
+  span {
+    display: inline-block;
+  }
+}
+
+.first-column {
+  width: 45%;
+  margin-right: 5%;
+}
+
+.second-column {
+  width: 20%;
+}
+
+.third-column {
+  width: 25%;
+}
+
+.fourth-column {
+  width: 4%;
+}
+
+.trainer .fourth-column {
+  margin-left: 4px;
+}
+
+.arrow-down {
+  height: 20px;
+  background: url("../layout/arrow-down-accordion.svg") no-repeat 0 0/contain;
+}
+
+.mod_eventlist .more a {
+  display: inline-block;
+  float: right;
+  width: 185px;
+  margin-bottom: 15px;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: $orange;
+  cursor: pointer;
+  color: white;
+  &:hover {
+    background-color: $orange-hover;
+  }
+}
+
+#main .inside > div .events-listpage .ce_accordion.trainer .accordion {
+  transition: height 800ms;
+}
+
+.job-filter-wrapper {
+  position: relative;
+  #place-picker {
+    width: 90%;
+    max-height: 80vh;
+    .location-option {
+      width: 20%;
+      float: left;
+      border-bottom: none;
+    }
+  }
+}
+
+.post-job-button {
+  position: absolute;
+  bottom: 20px;
+  right: 7px;
+  a {
+    background-color: $orange;
+    padding: 15px;
+    border-radius: 5px;
+    color: white;
+    transition: all 250ms;
+    -webkit-transition: all 250ms;
+    -moz-transition: all 250ms;
+    -o-transition: all 250ms;
+    &:hover {
+      background-color: $orange-hover;
+    }
+  }
+}
+
+.events-back-button {
+  display: inline-block;
+  margin-bottom: 80px;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: #fbad18;
+  cursor: pointer;
+  color: white;
+  transition: all 250ms;
+  -webkit-transition: all 250ms;
+  -moz-transition: all 250ms;
+  -o-transition: all 250ms;
+  &:hover {
+    background-color: $orange-hover;
+  }
+}
+
+@media screen and (max-width: $tablet) {
+  #main .inside > div .events-listpage {
+    width: 90%;
+  }
+  .filter-buttons {
+    display: block;
+    float: right;
+    width: 36%;
+    margin-left: 0;
+    > div {
+      width: 82%;
+      margin-bottom: 4px;
+      > span:first-child {
+        width: 25px;
+        height: 25px;
+      }
+    }
+  }
+  .event-filter {
+    margin: 0 auto;
+    width: 90%;
+  }
+  .first-column {
+    width: 39%;
+  }
+  .radio-option {
+    width: 175px;
+  }
+  .filter-headline {
+    margin-top: 20px;
+  }
+  .event-table-head .second-column,.event-table-head .third-column {
+    float: right;
+  }
+  .event-table-head .fourth-column {
+    display: none;
+  }
+  .toggler .second-column, .toggler .third-column {
+    display: block;
+    float: right;
+    margin-bottom: 20px;
+  }
+  #main .inside > div .events-listpage .toggler .arrow-down {
+    display: block;
+    width: 30px;
+    height: 20px;
+    margin: 0 auto;
+    clear: both;
+  }
+  .event-accordion-detail > div {
+    display: block;
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  .event-detail-body .column {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  .event-detail-body table td {
+    display: block;
+    width: 65vw !important;
+    &:last-child {
+      margin-bottom: 15px;
+    }
+  }
+  .event-detail-table-head span {
+    display: block;
+    &:first-child {
+      margin-bottom: 10px;
+    }
+  }
+  #place-picker,#date-picker,#event-search-form {
+    width: 280px;
+  }
+  #date-input {
+    width: 255px;
+  }
+}
