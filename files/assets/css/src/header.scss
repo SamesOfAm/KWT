@@ -130,8 +130,8 @@
 }
 
 .mobile_menu_trigger img {
-    display: none;
     position: absolute;
+    top: 105px;
     right: 12vw;
     width: 75px;
     height: 75px;
@@ -188,6 +188,7 @@
   }
 
   .mobile_menu_trigger img {
+    top: initial;
     display: block;
     bottom: 50px;
   }
@@ -195,6 +196,7 @@
   .header-navigation {
     display: none;
   }
+
 }
 
 @media screen and (max-width: $smartphone) {

@@ -7,8 +7,7 @@ module.exports = function(grunt) {
             dist: {
                 options: {
                     style: 'compressed',
-                    compass: false,
-                    sourcemap: 'none'
+                    compass: false
                 },
                 files: {
                     'files/assets/css/style.min.css': [
