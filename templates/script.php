@@ -107,4 +107,50 @@
         request.send();
     })();
 
+  /*  const seminarCheck = document.querySelectorAll(".seminarday .checkbox");
+    //console.log(seminarCheck);
+    const maxCheck = 4;
+    for (let i = 0; i < seminarCheck.length; i++) {
+        seminarCheck[i].onclick = seminarDayCheck;
+
+        function seminarDayCheck () {
+            const checkboxCheck = document.querySelectorAll(".checkbox:checked");
+           // console.log(checkboxCheck);
+            if (checkboxCheck.length > maxCheck ) {
+                return false;
+            }
+        }
+    }*/
+    const div = document.createElement("div");
+    div.classList.add('meldung')
+    div.innerHTML = "Bitte wählen Sie maximal 4 Seminartage aus.";
+    div.style.opacity = '0'
+
+    const seminarCheck = document.querySelectorAll(".seminarday .checkbox");
+    const maxCheck = 4;
+    const checkboxCheck = document.querySelectorAll(".checkbox:checked");
+    seminarCheck.forEach(checkbox => {
+    checkbox.addEventListener('click', function (e) {
+       // console.log(e.target)  ;
+        //console.log(checkbox);
+        const checkboxCheck = document.querySelectorAll(".checkbox:checked");
+        // console.log(checkboxCheck.length);
+            if (checkboxCheck.length > maxCheck ) {
+                e.target.parentElement.appendChild(div);
+               // console.log(  e.target.parentElement.appendChild(div))
+
+                setTimeout(function() {
+                    document.querySelector('.meldung').style.opacity = '1';
+                }, 100)
+                setTimeout(function() {
+                    document.querySelector('.meldung').style.opacity = '0';
+                }, 5000);
+                this.checked = false;
+            } else if(checkboxCheck.length < maxCheck && document.querySelector('.meldung')) {
+                document.querySelector('.meldung').style.opacity = '0'
+            }
+       })
+
+    })
+
 </script>

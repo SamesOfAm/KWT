@@ -72,6 +72,215 @@
   }
 }
 
+/*.contact p {
+  font-weight: 500;
+  color: #595959;
+  button {
+    padding: 3px 12px;
+    cursor: pointer;
+    border: 2px solid;
+    float: right;
+    right: 5%;
+    position: relative;
+    background: #69696969;
+    transition: background 250ms;
+    &:hover {
+      background: gray;
+    }
+  }
+}*/
+
+.anmeldeformular .title legend {
+  margin: 0;
+}
+
+#main .ce_form.anmeldeformular {
+  margin: 20px auto;
+}
+
+#main .ce_form.anmeldeformular, .mentoringsformular {
+  overflow: visible;
+  fieldset {
+    border: 0;
+  }
+}
+
+.anmeldeformular .widget.widget-text, .anmeldeformular .widget.widget-textarea {
+  display: flex;
+  justify-content: space-between;
+  margin: 15px 0;
+  label {
+    width: 31%;
+    align-self: center;
+    font-weight: 500;
+    color: #595959;
+  }
+  input, textarea {
+    width: 47%;
+    padding: 7px 12px;
+    cursor: pointer;
+    outline: none;
+    background-color: aliceblue;
+    border: 0;
+  }
+}
+
+.anmeldeformular .widget.widget-radio.mandatory, .checkbox_container,  .widget.widget-radio{
+  margin-left: -14px;
+  .title {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  span input {
+    cursor: pointer;
+  }
+}
+
+.title .span, .title .training {
+  display: flex;
+  justify-content: space-between;
+  span {
+    margin: 0 35px;
+  }
+}
+
+.title .training span {
+  margin: 0 75px;
+}
+
+.title .span1 {
+  margin-right: 30%;
+}
+
+.anmeldeformular .widget.widget-explanation.explanation {
+  color: #5c6367;
+  font-size: 13px;
+}
+
+.anmeldeformular legend, .anmeldeformular .title span {
+  font-weight: 500;
+  color: #595959;
+}
+
+.anmeldeformular legend {
+  margin: 11px 0;
+}
+
+.anmeldeformular .group {
+  display: flex;
+  justify-content: space-between;
+}
+
+.anmeldeformular .submit {
+  margin-top: 18px;
+  padding: 7px 20px;
+  background-color: #2e5b99;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 400;
+  cursor: pointer;
+  border: 0;
+  transition: filter 250ms;
+  &:hover  {
+    filter: brightness(1.5);
+  }
+}
+#main .inside > div > .ce_text.formular_main {
+  width: 80%;
+  max-width: 850px;
+}
+
+.anmeldeformular .checkbox_container  {
+  label p {
+    margin-left: 3px;
+    margin-top: -0;
+  }
+  legend {
+    color: #2e5b99;
+  }
+  input {
+    cursor: pointer;
+    float: left;
+  }
+
+ /* .checkbox-anmeldeformular {
+    width: 12px;
+    height: 12px;
+    margin: 3px 5px 0 2px;
+    cursor: pointer;
+    border: 2px solid #2e5b99;
+    border-radius: 100%;
+    float: left;
+  }*/
+}
+
+.anmeldeformular .checkbox_container.seminarday input {
+  display: none;
+}
+
+.anmeldeformular .widget.widget-checkbox.seminarday {
+  position: relative;
+}
+
+.meldung {
+  background: #2e5b99;
+  color: #fff;
+  padding: 10px 20px;
+  position: absolute;
+  top: -71px;
+  left: -80px;
+  overflow: visible;
+  height: auto;
+  width: 90px;
+  font-size: 14px;
+  font-style: italic;
+  opacity: 0;
+  transition: opacity 250ms;
+}
+
+.anmeldeformular .widget.widget-checkbox.seminarday  fieldset > span {
+  position: relative;
+}
+
+
+.anmeldeformular .formbody input[type="checkbox"] + label span {
+
+  width: 12px;
+  height: 12px;
+  margin: 3px 5px 0 2px;
+  cursor: pointer;
+  border: 2px solid #2e5b99;
+  border-radius: 100%;
+  float: left;
+}
+
+.anmeldeformular .formbody input[type="checkbox"]:checked + label span {
+  background-color: #2e5b99;
+}
+
+.ausgebucht > p:first-child, .online > p:first-child {
+  position: relative;
+  &:after {
+    position: absolute;
+    top: 0;
+    right: 50px;
+    background: red;
+    color: white;
+    padding: 6px 12px;
+  }
+}
+
+.ausgebucht > p:first-child:after {
+  content: "ausgebucht";
+}
+
+.online > p:first-child:after {
+  content: "nur noch online buchbar";
+}
+
+
+
 @media screen and (max-width: $smartphone) {
   .job-posting-form fieldset span:not(.mandatory) {
     display: block;
@@ -79,4 +288,53 @@
   .job-posting-form textarea {
     width: 190px;
   }
+  .anmeldeformular .widget.widget-radio.mandatory .title {
+    display: block;
+  }
+  .title .span, .title .training {
+    display: block;
+    span {
+      margin: 0;
+    }
+  }
+  .title .span1 {
+    margin-right: 0;
+  }
+  .anmeldeformular .widget.widget-text, .anmeldeformular .widget.widget-textarea {
+    flex-wrap: wrap;
+  }
+  .anmeldeformular .widget.widget-text input, .anmeldeformular .widget.widget-text textarea,
+  .anmeldeformular .widget.widget-textarea input, .anmeldeformular .widget.widget-textarea textarea {
+    width: 100%;
+  }
+  .anmeldeformular .widget.widget-text label, .anmeldeformular .widget.widget-text textarea,
+  .anmeldeformular .widget.widget-textarea label, .anmeldeformular .widget.widget-textarea textarea {
+    width: 100%;
+    margin-bottom: 7px;
+  }
+  .anmeldeformular .group {
+    display: block;
+    span {
+      display: block;
+    }
+  }
+  .anmeldeformular .title legend {
+    margin: 11px 0                                             ;
+  }
+  #main .ce_form.anmeldeformular {
+    margin: 0 auto;
+  }
+  .widget.widget-radio span {
+    display: block;
+  }
+  .online > p:first-child::after, .ausgebucht > p:first-child::after {
+    right: 3px;
+    padding: 4px 4px;
+    font-size: 14px;
+  }
+  .anmeldeformular .widget.widget-checkbox.seminarday .meldung {
+    right: -90px;
+    top: -100px;
+  }
+
 }
