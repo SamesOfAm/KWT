@@ -415,6 +415,10 @@
   width: 25%;
 }
 
+.toggler .third-column {
+  padding: 0 8px;
+}
+
 .fourth-column {
   width: 4%;
 }
@@ -519,23 +523,34 @@
     width: 90%;
   }
   .first-column {
-    width: 39%;
+    width: 100%;
+  }
+  .second-column {
+    width: 100%;
+  }
+  .third-column {
+    width: 100%;
   }
   .radio-option {
+    padding: 11px 0;
+    font-size: 13px;
     width: 175px;
   }
   .filter-headline {
     margin-top: 20px;
   }
   .event-table-head .second-column,.event-table-head .third-column {
-    float: right;
+    float: none;
   }
   .event-table-head .fourth-column {
     display: none;
   }
   .toggler .second-column, .toggler .third-column {
     display: block;
-    float: right;
+    float: none;
+  }
+  .toggler .third-column {
+    padding: 0;
     margin-bottom: 20px;
   }
   #main .inside > div .events-listpage .toggler .arrow-down {
@@ -572,5 +587,11 @@
   }
   #date-input {
     width: 255px;
+  }
+  .post-job-button {
+    bottom: 15px;
+  }
+  span.first-column:nth-child(1),span.second-column:nth-child(2),span.third-column:nth-child(3) {
+    display: none;
   }
 }

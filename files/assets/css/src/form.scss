@@ -279,6 +279,9 @@
   content: "nur noch online buchbar";
 }
 
+.mandatory.error {
+  color: red;
+}
 
 
 @media screen and (max-width: $smartphone) {

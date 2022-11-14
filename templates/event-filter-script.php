@@ -34,7 +34,7 @@
                     }
                 }
                 element.classList.add('active');
-                element.nextSibling.style.height = '170px';
+                element.nextSibling.style.height = 'auto';
             } else {
                 element.classList.remove('active');
                 element.nextSibling.style.height = '0';
@@ -89,7 +89,7 @@
                                 table.insertBefore(accordion, table.children[i+1]);
                                 eventsArray.splice(i, 0, accordion);
                                 inserted = true;
-                            } 
+                            }
                         }
                     }
                 });
