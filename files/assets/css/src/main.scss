@@ -246,6 +246,24 @@ h4.long {
   }
 }
 
+.button p {
+  display: inline-block;
+  background-color: #fbad18;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  transition: all 250ms;
+  font-size: 16px;
+  a {
+    color: white;
+  }
+  &:hover {
+    background-color: #ffc85f;
+  }
+}
+
 @media screen and (max-width: $tablet) {
   #container {
     margin-top: 0;
