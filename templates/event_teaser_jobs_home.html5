@@ -1,9 +1,9 @@
 <?php
-  $datePieces = explode("-", $this->date);
+  $datePieces = explode(".", $this->date);
 ?>
 <div class="event job-home layout_teaser<?= $this->classList ?>" itemscope itemtype="http://schema.org/Event">
 
-  <p class="time"><time datetime="<?= $this->datetime ?>" itemprop="startDate"><?= $datePieces[2]; ?>.<?= $datePieces[1]; ?>.<?= $datePieces[0]; ?></time></p>
+  <p class="time"><time datetime="<?= $this->datetime ?>" itemprop="startDate"><?= $datePieces[0]; ?>.<?= $datePieces[1]; ?>.<?= $datePieces[2]; ?></time></p>
     <h3 itemprop="name"><a href="<?= $this->href ?>" title="<?= $this->title ?> (<?php if ($this->day) echo $this->day . ', '; ?><?= $this->date ?><?php if ($this->time) echo ', ' . $this->time; ?>)"<?= $this->target ?> itemprop="url"><?= $this->link ?></a></h3>
 
 

@@ -1,5 +1,5 @@
 <?php
-  $datePieces = explode("-", $this->date);
+  $datePieces = explode(".", $this->date);
 ?>
 <div class="event layout_full block<?= $this->class ?>" itemscope itemtype="http://schema.org/Event">
   <div class="event-detail-table-head">
@@ -14,7 +14,7 @@
       <?php if($this->class === ' mvz'):  ?>MVZ<?php endif; ?>
       <?php if($this->class === ' krankenhaus'):  ?>Krankenhaus<?php endif; ?>
     </span>
-    <span class="second-column"><?= $datePieces[2]; ?>.<?= $datePieces[1]; ?>.<?= $datePieces[0]; ?></span>
+    <span class="second-column"><?= $datePieces[0]; ?>.<?= $datePieces[1]; ?>.<?= $datePieces[2]; ?></span>
     <span class="third-column"><?= $this->location ?></span>
   </div>
   <div class="event-detail-body">
@@ -52,7 +52,7 @@
         <?php endif; ?>
       </div>
     <?php endif; ?>
-    
+
   <?php if($this->class === ' seminar' || $this->class === ' mentoring'): ?>
 	<a class="orange-button" href="{{link_url::39}}">Anmeldung zum Seminar- und Mentoringprogramm</a>
   <?php endif; ?>
