@@ -1,9 +1,16 @@
 <?php
-  $datePieces = explode(".", $this->date);
+    $datePieces = explode(".", $this->date);
+    $datePiecesEnglish = explode("-", $this->date);
+    $parsedDate = '';
+    if(sizeof($datePiecesEnglish) > 1) {
+      $parsedDate = $datePiecesEnglish[2] . '. ' . $datePiecesEnglish[1] . '. ' . $datePiecesEnglish[0];
+    } elseif(sizeof($datePieces) > 1) {
+      $parsedDate = $datePieces[0] . '. ' . $datePieces[1] . '. ' . $datePieces[2];
+    }
 ?>
 <div class="event job-home layout_teaser<?= $this->classList ?>" itemscope itemtype="http://schema.org/Event">
 
-  <p class="time"><time datetime="<?= $this->datetime ?>" itemprop="startDate"><?= $datePieces[0]; ?>.<?= $datePieces[1]; ?>.<?= $datePieces[2]; ?></time></p>
+  <p class="time"><time datetime="<?= $this->datetime ?>" itemprop="startDate"><?= $parsedDate ?></time></p>
     <h3 itemprop="name"><a href="<?= $this->href ?>" title="<?= $this->title ?> (<?php if ($this->day) echo $this->day . ', '; ?><?= $this->date ?><?php if ($this->time) echo ', ' . $this->time; ?>)"<?= $this->target ?> itemprop="url"><?= $this->link ?></a></h3>
 
 
