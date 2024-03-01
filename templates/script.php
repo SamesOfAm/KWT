@@ -1,4 +1,15 @@
 <script>
+
+
+  if(document.querySelector('.ausgebucht')) {
+    const allBookedDays = document.querySelectorAll('.ausgebucht');
+    allBookedDays.forEach(day => {
+      day.parentElement.querySelector('span').style.opacity = '.3';
+      day.parentElement.parentElement.querySelector('input').setAttribute('disabled', 'true');
+    })
+
+  }
+
     if (!Array.prototype.forEach) {
         Array.prototype.forEach = function(callback, thisArg) {
             let T, k;
@@ -152,5 +163,6 @@
        })
 
     })
+
 
 </script>

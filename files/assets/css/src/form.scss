@@ -113,7 +113,7 @@
     width: 31%;
     align-self: center;
     font-weight: 500;
-    color: #595959;
+    color: black;
   }
   input, textarea {
     width: 47%;
@@ -125,8 +125,15 @@
   }
 }
 
+.radio-break {
+  > span {
+    display: block;
+  }
+}
+
 .anmeldeformular .widget.widget-radio.mandatory, .checkbox_container,  .widget.widget-radio{
   margin-left: -14px;
+  margin-bottom: 15px;
   .title {
     display: flex;
     justify-content: space-between;
@@ -160,7 +167,7 @@
 
 .anmeldeformular legend, .anmeldeformular .title span {
   font-weight: 500;
-  color: #595959;
+  color: black;
 }
 
 .anmeldeformular legend {
@@ -284,6 +291,13 @@
 }
 
 
+@media screen and (max-width: $tablet) {
+  #main .ce_form.anmeldeformular {
+    margin-bottom: 100px;
+  }
+}
+
+
 @media screen and (max-width: $smartphone) {
   .job-posting-form fieldset span:not(.mandatory) {
     display: block;
@@ -322,10 +336,10 @@
     }
   }
   .anmeldeformular .title legend {
-    margin: 11px 0                                             ;
+    margin: 11px 0;
   }
   #main .ce_form.anmeldeformular {
-    margin: 0 auto;
+    margin: 0 auto 100px;
   }
   .widget.widget-radio span {
     display: block;

@@ -264,6 +264,56 @@ h4.long {
   }
 }
 
+.btn-start {
+  position:absolute;
+  z-index:99;
+  right:23vw;
+  top:19vw;
+  transform:rotate(9deg) scale(0.9);
+  transform-origin:100% 100%;
+  transition:all 150ms ease-in-out
+}
+
+.btn-start img {
+  width:250px
+}
+
+.btn-start:hover {
+  transform:rotate(10deg) scale(1.1)}
+  .btn-start-2 {
+    position:absolute;
+    z-index:99;
+    left:8vw;
+    top:16vw;
+    transform:rotate(-9deg) scale(0.9);
+    transform-origin:100% 100%;
+    transition:all 150ms ease-in-out
+  }
+
+.btn-start-2 img {
+  width:250px
+}
+
+.btn-start-2:hover {
+  transform:rotate(-10deg) scale(1.1)}
+  .btn-start-3 {
+    position:absolute;
+    z-index:99;
+    left:8vw;
+    top:22vw;
+    transform:rotate(-9deg) scale(0.9);
+    transform-origin:100% 100%;
+    transition:all 150ms ease-in-out
+  }
+
+.btn-start-3 img {
+  width:250px
+}
+
+.btn-start-3:hover {
+  transform:rotate(-10deg) scale(1.1)
+}
+
 @media screen and (max-width: $tablet) {
   #container {
     margin-top: 0;
@@ -277,6 +327,16 @@ h4.long {
   .ce_download a,.orange-button {
     display: inline-block;
     width: 90%;
+  }
+
+  .btn-start {
+    right: 0;
+    top: 220px;
+    left: -50px;
+  }
+
+  #main .ce_form.anmeldeformular {
+    margin-bottom: 100px;
   }
 }
 
