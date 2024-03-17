@@ -65,7 +65,7 @@ ul {
 
 @media screen and (max-width: $smartphone) {
   .mobile-only {
-    display: block;
+    display: initial;
   }
 }
 
