@@ -91,11 +91,20 @@
 }*/
 
 .anmeldeformular .title legend {
+  width: 50%;
+  padding: 0;
   margin: 0;
 }
 
 #main .ce_form.anmeldeformular {
   margin: 20px auto;
+}
+
+.inputs {
+  width: 50%;
+  > span:not(:last-child) {
+    margin-right: 10px;
+  }
 }
 
 #main .ce_form.anmeldeformular, .mentoringsformular {
@@ -147,18 +156,9 @@
 .title .span, .title .training {
   display: flex;
   justify-content: space-between;
-  span {
-    margin: 0 35px;
-  }
+  width: 50%;
 }
 
-.title .training span {
-  margin: 0 75px;
-}
-
-.title .span1 {
-  margin-right: 30%;
-}
 
 .anmeldeformular .widget.widget-explanation.explanation {
   color: #5c6367;
@@ -288,6 +288,14 @@
 
 .mandatory.error {
   color: red;
+}
+
+.alert-div {
+  color: red;
+  background: #cecece;
+  display: inline-block;
+  padding: 13px;
+  margin: 10px 0;
 }
 
 

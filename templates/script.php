@@ -53,14 +53,18 @@
             return !1;
         });
     });
-    let footerMenuTrigger = document.querySelector('.footer-navigation-right').children[1].children[1].children[0];
-    footerMenuTrigger.children[0].innerHTML = "Hausarzt werden";
-    footerMenuTrigger.removeAttribute("href");
-    footerMenuTrigger.style.cursor = 'pointer';
-    footerMenuTrigger.id = 'footerMenuTrigger';
-    jQuery('#footerMenuTrigger').click(function(){
+    if(document.querySelector('.footer-navigation-right').children[1].children[1].children[0]) {
+      let footerMenuTrigger = document.querySelector('.footer-navigation-right').children[1].children[1].children[0];
+      if(footerMenuTrigger.children[0]) {
+        footerMenuTrigger.children[0].innerHTML = "Hausarzt werden";
+      }
+      footerMenuTrigger.removeAttribute("href");
+      footerMenuTrigger.style.cursor = 'pointer';
+      footerMenuTrigger.id = 'footerMenuTrigger';
+      jQuery('#footerMenuTrigger').click(function(){
         jQuery('#mobile-menu-25-trigger').click();
-    });
+      });
+    }
 
     if (document.querySelector('.job-slider') !== null) {
         if (document.querySelector('.job-slider').querySelector('.empty') !== null) {
@@ -132,7 +136,9 @@
             }
         }
     }*/
-    const div = document.createElement("div");
+
+
+  /*const div = document.createElement("div");
     div.classList.add('meldung')
     div.innerHTML = "Bitte wählen Sie maximal 4 Seminartage aus.";
     div.style.opacity = '0'
@@ -162,7 +168,32 @@
             }
        })
 
+    })*/
+
+  if(document.querySelector('.widget-checkbox.seminarday-min-four')) {
+    const allDays = document.querySelectorAll('.widget-checkbox.seminarday-min-four span input')
+    const form = document.querySelector('.ce_form.anmeldeformular form')
+    form.addEventListener('submit', (e) => {
+      const checkedDays = Array.from(allDays).filter(day => {
+        return day.checked
+      })
+      console.log(checkedDays.length)
+      if(checkedDays.length < 4) {
+        e.preventDefault()
+        console.log('Not enough')
+        if(!form.querySelector('.alert-div')) {
+          const alertDiv = document.createElement('div')
+          alertDiv.classList.add('alert-div')
+          alertDiv.innerHTML = 'Bitte wählen Sie mindestens 4 Seminartage'
+          form.appendChild(alertDiv);
+        }
+        return false
+      } else {
+        console.log('Enough days')
+        return true
+      }
     })
+  }
 
 
 </script>

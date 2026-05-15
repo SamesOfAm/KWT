@@ -42,12 +42,14 @@
         }
         (function importLAEK() {
             let request = new XMLHttpRequest();
-            request.open('GET', 'https://www.laek-thueringen.de/webservice/veranstaltungen/', true);
+            request.open('GET', 'https://wshp.service.laekth.de/api/Events?FullText=Train%20the%20Trainer', true);
+            request.setRequestHeader('X-API-KEY', '#m#c;Ck36BrL05SIgik%!AVcvjwpW~13+RK2Ssl|5k5G?@$_KV??-7?Z|K*aqs_J4')
             request.onload = function () {
-                let data = JSON.parse(this.response);
+                let data = JSON.parse(this.response).events;
                 let table = document.getElementById('events-list');
                 data.forEach(function(event) {
-                    let trueDate = event.VON_DATUM.replace("+", ".") + 'Z';
+                    let trueDate = event.von.replace("+", ".") + 'Z';
+                    //if(event.bis) trueDate += ' bis ' + event.bis.replace("+", ".")
                     let accordion = document.createElement("section");
                     let d = new Date(trueDate);
                     let dataDate = d.getFullYear() + ',' + ("0" + (d.getMonth() + 1)).slice(-2) + ',' + ("0" + d.getDate()).slice(-2);
@@ -64,15 +66,25 @@
                     accordion.classList.add('cal_1');
                     let overviewInfoHeading = '';
                     let overviewInfo = '';
-                    if (event.THEMEN !== null) {
+                    if (event.themen !== null) {
                         overviewInfoHeading = 'Themen';
-                        overviewInfo = event.THEMEN;
+                        console.log(event.themen)
+                        overviewInfo = event.themen.replaceAll('#','<br>');
+                        console.log(overviewInfo)
                     } else {
                         overviewInfoHeading = 'KursleiterIn';
-                        overviewInfo = event.KURSLEITER;
+                        overviewInfo = event.kursleiter;
                     }
                     accordion.setAttribute("data-date", dataDate);
-                    accordion.innerHTML = '<div onclick ="toggleAccordion(this);" class="toggler ui-accordion-header ui-corner-top ui-accordion-header-collapsed ui-corner-all ui-state-default ui-accordion-icons" role="tab" aria-selected="false" aria-expanded="false" tabindex="0"><span class="ui-accordion-header-icon ui-icon ui-icon-triangle-1-e"></span><span itemprop="name" class="first-column">&nbsp;' + event.THEMA +  '</span>[nbsp]<span class="date second-column">&nbsp;' + ("0" + d.getDate()).slice(-2) +  '. ' + ("0" + (d.getMonth() + 1)).slice(-2) + '. ' + d.getFullYear() +  '</span><span class="third-column location-for-filter">&nbsp;' + event.ANSPR_ORT + '</span><span class="fourth-column arrow-down"></span></div><div class="accordion ui-accordion-content ui-corner-bottom ui-helper-reset ui-widget-content" role="tabpanel" aria-hidden="true" style="padding-top: 0px; border-top: medium none; padding-bottom: 0px; border-bottom: medium none; overflow: hidden; height: 0px;"><div><div class="event layout_teaser" itemscope="" itemtype="http://schema.org/Event"><div class="event-accordion-detail" itemprop="description"><div class="first-column"><p><strong>' + overviewInfoHeading + '</strong>: ' + overviewInfo + '</p></div><div class="second-column time"><span class="column-head">Zeitraum</span><br><time datetime="' + d + '"itemprop="startDate">' + ("0" + d.getDate()).slice(-2) +  '. ' + ("0" + (d.getMonth() + 1)).slice(-2) + '. ' + d.getFullYear() + '</time></div><div class="third-column"><span class="column-head">Veranstaltungsort</span><br>' + event.ANSPR_ORT + '</div></div><p class="more"><a href="/trainer.html#' + event.VERANSTALTUNGNUMMER +  '" title="" itemprop="url">Weitere Informationen [gt]<span class="invisible">' + event.THEMA +  '</span></a></p></div></div></div>';
+                    let showDate;
+                    showDate = ("0" + d.getDate()).slice(-2) +  '.&nbsp;' + ("0" + (d.getMonth() + 1)).slice(-2) + '.&nbsp;' + d.getFullYear()
+                  if(event.bis) {
+                    let trueEndDate = event.bis.replace("+", ".") + 'Z';
+                    console.log('trueEndDate: ', trueEndDate)
+                    let dEnd = new Date(trueEndDate);
+                    showDate += ' bis ' + ("0" + dEnd.getDate()).slice(-2) +  '.&nbsp;' + ("0" + (dEnd.getMonth() + 1)).slice(-2) + '.&nbsp;' + dEnd.getFullYear()
+                  }
+                    accordion.innerHTML = '<div onclick ="toggleAccordion(this);" class="toggler ui-accordion-header ui-corner-top ui-accordion-header-collapsed ui-corner-all ui-state-default ui-accordion-icons" role="tab" aria-selected="false" aria-expanded="false" tabindex="0"><span class="ui-accordion-header-icon ui-icon ui-icon-triangle-1-e"></span><span itemprop="name" class="first-column">&nbsp;' + event.veranstaltung +  '</span>[nbsp]<span class="date second-column">' + showDate +  '</span><span class="third-column location-for-filter">&nbsp;' + event.ortSuche + '</span><span class="fourth-column arrow-down"></span></div><div class="accordion ui-accordion-content ui-corner-bottom ui-helper-reset ui-widget-content" role="tabpanel" aria-hidden="true" style="padding-top: 0px; border-top: medium none; padding-bottom: 0px; border-bottom: medium none; overflow: hidden; height: 0px;"><div><div class="event layout_teaser" itemscope="" itemtype="http://schema.org/Event"><div class="event-accordion-detail" itemprop="description"><div class="first-column"><p><strong>' + overviewInfoHeading + '</strong>: ' + overviewInfo + '</p></div><div class="second-column time"><span class="column-head">Zeitraum</span><br><time datetime="' + d + '"itemprop="startDate">' + showDate + '</time></div><div class="third-column"><span class="column-head">Veranstaltungsort</span><br>' + event.ortSuche + '</div></div><p class="more"><a href="/trainer.html#' + event.veranstaltungnummer +  '" title="" itemprop="url">Weitere Informationen [gt]<span class="invisible">' + event.veranstaltung +  '</span></a></p></div></div></div>';
                     let inserted = false;
                     if(new Date(eventsArray[eventsArray.length-1].dataset.date) < d) {
                         table.appendChild(accordion);
