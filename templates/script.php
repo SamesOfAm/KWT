@@ -1,4 +1,5 @@
 <script>
+  console.log('Script');
   if(document.querySelector('.ausgebucht')) {
     const allBookedDays = document.querySelectorAll('.ausgebucht');
     allBookedDays.forEach(day => {
@@ -136,38 +137,46 @@
           }
       }*/
 
+  let year = '2026';
+  if(document.querySelector('.formular_main h2').innerHTML.includes('2027')){
+    year = '2027'
+  }
+  console.log(year);
+
 
   const div = document.createElement("div");
   div.classList.add('meldung')
   div.innerHTML = "Bitte wählen Sie maximal 4 Seminartage aus.";
   div.style.opacity = '0'
 
-  const seminarCheck = document.querySelectorAll(".seminarday .checkbox");
-  const maxCheck = 4;
-  const checkboxCheck = document.querySelectorAll(".checkbox:checked");
-  seminarCheck.forEach(checkbox => {
-    checkbox.addEventListener('click', function (e) {
-      // console.log(e.target)  ;
-      //console.log(checkbox);
-      const checkboxCheck = document.querySelectorAll(".checkbox:checked");
-      // console.log(checkboxCheck.length);
-      if (checkboxCheck.length > maxCheck ) {
-        e.target.parentElement.appendChild(div);
-        // console.log(  e.target.parentElement.appendChild(div))
+  if(year === '2026') {
+    const seminarCheck = document.querySelectorAll(".seminarday .checkbox");
+    const maxCheck = 4;
+    const checkboxCheck = document.querySelectorAll(".seminarday .checkbox:checked");
+    seminarCheck.forEach(checkbox => {
+      checkbox.addEventListener('click', function (e) {
+        // console.log(e.target)  ;
+        //console.log(checkbox);
+        const checkboxCheck = document.querySelectorAll(".seminarday .checkbox:checked");
+        // console.log(checkboxCheck.length);
+        if (checkboxCheck.length > maxCheck ) {
+          e.target.parentElement.appendChild(div);
+          // console.log(  e.target.parentElement.appendChild(div))
 
-        setTimeout(function() {
-          document.querySelector('.meldung').style.opacity = '1';
-        }, 100)
-        setTimeout(function() {
-          document.querySelector('.meldung').style.opacity = '0';
-        }, 5000);
-        this.checked = false;
-      } else if(checkboxCheck.length < maxCheck && document.querySelector('.meldung')) {
-        document.querySelector('.meldung').style.opacity = '0'
-      }
+          setTimeout(function() {
+            document.querySelector('.meldung').style.opacity = '1';
+          }, 100)
+          setTimeout(function() {
+            document.querySelector('.meldung').style.opacity = '0';
+          }, 5000);
+          this.checked = false;
+        } else if(checkboxCheck.length < maxCheck && document.querySelector('.meldung')) {
+          document.querySelector('.meldung').style.opacity = '0'
+        }
+      })
+
     })
-
-  })
+  }
 
 
   if(document.querySelector('.widget-checkbox.seminarday-min-four')) {

@@ -151,6 +151,11 @@
   span input {
     cursor: pointer;
   }
+  &.meet-mentor {
+    fieldset span {
+      display: block;
+    }
+  }
 }
 
 .title .span, .title .training {
